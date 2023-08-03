@@ -1,19 +1,2 @@
 #!/bin/bash
-#!/bin/bash
-
-# Function to list files in long format
-list_files_long_format() {
-    echo "Listing files in long format for directory: $1"
-    ls -al "$1"
-    echo "--------------------------------------------------"
-}
-
-# List files in long format for the current directory
-list_files_long_format "$(pwd)"
-
-# List files in long format for the parent of the working directory
-parent_directory="$(dirname "$(pwd)")"
-list_files_long_format "$parent_directory"
-
-# List files in long format for the /boot directory
-list_files_long_format "/boot"
+ls -al "$(pwd)" "$(dirname "$(pwd)")" "/boot"
