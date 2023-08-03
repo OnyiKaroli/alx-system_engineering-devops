@@ -1,0 +1,2 @@
+#!/bin/bash
+ls -1F | sed '1,2d;s/[^[:alnum:]]//g;s/.$//;s/$/,/'
