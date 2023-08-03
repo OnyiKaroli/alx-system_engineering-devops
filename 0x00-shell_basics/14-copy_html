@@ -1,19 +1,2 @@
 #!/bin/bash
-#!/bin/bash
-
-current_dir=$(pwd)
-parent_dir=$(dirname "$current_dir")
-
-# Find and copy HTML files
-find "$current_dir" -maxdepth 1 -type f -name "*.html" | while read -r html_file; do
-    file_name=$(basename "$html_file")
-    target_file="$parent_dir/$file_name"
-    
-    # Check if the target file exists and if it's older than the source file
-    if [ ! -e "$target_file" ] || [ "$html_file" -nt "$target_file" ]; then
-        cp "$html_file" "$target_file"
-        echo "Copied: $html_file -> $target_file"
-    else
-        echo "Skipped: $html_file (Up-to-date)"
-    fi
-done
+find . -name "*.html" -exec cp -v {} ../ \
